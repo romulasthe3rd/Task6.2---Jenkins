@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                
+                write("Hello")
             }
         }
         stage('Unit and Integration Tests') {

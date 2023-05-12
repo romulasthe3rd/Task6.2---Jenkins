@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage("Build"){
             steps{
+                echo "building"
                 // Build the code using Maven
                 
             }

@@ -5,7 +5,7 @@ pipeline{
             steps{
                 echo "Cleaning package..."
                 // Build the code using Maven
-                sh 'Mavin clean package'
+              
             }
            post
                 {

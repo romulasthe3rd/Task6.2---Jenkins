@@ -81,6 +81,16 @@ pipeline{
             }
             
         }
+            
+            stage('Deploy to Staging')
+        {
+            steps
+            {
+                //Running Deploy to staging using EC2 instance
+                echo 'deploy the application to a staging server using AWS EC2 Instance...'
+
+            }
+        }
        
         stage('Integration Tests on Staging')
         {

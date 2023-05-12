@@ -94,20 +94,6 @@ pipeline{
             }
         }       
         
-    
-    post 
-    {
-        always             
-        {
-
-            mail to: 'rom.frd19@gmail.com',
-                    subject: "Status: ${currentBuild.result}",
-                    body: "Pipeline has been a ${currentBuild.result}."
-
-            
-                
-        }
-    }
     }
 }
 

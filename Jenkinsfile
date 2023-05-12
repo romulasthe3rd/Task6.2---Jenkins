@@ -1,6 +1,7 @@
-   
-    pipeline {
+pipeline{
     agent any
+    stages
+        {
     
     stage('Build') 
         {
@@ -24,14 +25,14 @@
                 //If it fails it will send a failed comfirmation email to the address provided
                 failure 
                 {
-                    mail to: 'rom.frd19@gmail.com',
+                    mail to: "rom.frd19@gmail.com",
                         subject: "The Unit and Integration Tests has failed...",
                         body: "Unfortunately, the Unit and Integration Tests has failed. Please fix issues."
                 }
                 //If it Succeeds it will send a Succeeded comfirmation email to the address provided
                 success 
                 {
-                    mail to: 'rom.frd19@gmail.com',
+                    mail to: "rom.frd19@gmail.com",
                         subject: "The Unit and Integration Tests has succeeded!",
                         body: "Fortunately, the Unit and Integration Tests has Succeeded!"
                 }
@@ -45,7 +46,7 @@
             steps
             {
                 //Running code analysis using PMD
-                 echo 'Running code analysis using PMD'
+                 echo "Running code analysis using PMD"
             }
 
         }
@@ -54,21 +55,21 @@
             steps 
             {
                 //Running Security scan using Nessus
-                echo 'Running Security scan using Nessus'
+                echo "Running Security scan using Nessus"
             }
             post
             {   
                 //If it fails it will send a failed comfirmation email to the address provided
                 failure 
                 {
-                        mail to: 'rom.frd19@gmail.com',
+                        mail to: "rom.frd19@gmail.com",
                         subject: "The Security Scan has failed...",
                         body: "Unfortunately, the Security Scan has failed. Please fix issues."
                 }
                 //If it Succeeds it will send a Succeeded comfirmation email to the address provided
                 success 
                 {
-                        mail to: 'rom.frd19@gmail.com',
+                        mail to: "rom.frd19@gmail.com",
                         subject: "The Security Scan has succeeded!",
                         body: "Fortunately, the Security Scan has Succeeded!"
                 }
@@ -82,13 +83,14 @@
             //Running the integration tests on staging
             steps
             {
-                echo 'Integration Tests on Staging running...'
+                echo "Integration Tests on Staging running..."
             }
         }
+
         stage('Deploy to Production')
         {
             steps{
-                echo'Deploy to Production server using AWS EC2 instance running...'
+                echo"Deploy to Production server using AWS EC2 instance running..."
             }
         }       
         
@@ -106,4 +108,6 @@
                 
         }
     }
+    }
 }
+

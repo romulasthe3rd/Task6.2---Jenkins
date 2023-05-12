@@ -4,7 +4,7 @@ pipeline{
         stage("Build"){
             steps{
                 // Build the code using Maven
-                sh 'mvn clean package'
+                
             }
            post
                 {
@@ -20,6 +20,15 @@ pipeline{
         stage("Unit and Integration Test"){
             steps{
                 echo "Testing..."
+                 sh 'mvn test' // runs all tests in the project using JUnit
+                
+                // start Selenium container using Docker
+                sh 'docker run -d -p 4444:4444 selenium/standalone-chrome'
+                // run integration tests using Selenium and TestNG
+                sh 'mvn -Dtest=MyIntegrationTests test'
+                // stop Selenium container
+                sh 'docker stop $(docker ps -q -f "ancestor=selenium/standalone-chrome")'
+            }
             }
         }
 

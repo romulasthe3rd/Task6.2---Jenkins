@@ -8,10 +8,7 @@ pipeline {
                 // Build the code using Maven
                 sh 'mvn clean package'
             }
-            post {
-                // Archive the build artifacts
-                archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
-            }
+           
         }
         stage('Unit and Integration Tests') {
             steps {

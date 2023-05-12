@@ -28,6 +28,7 @@ pipeline{
                     mail to: "rom.frd19@gmail.com",
                         subject: "The Unit and Integration Tests has failed...",
                         body: "Unfortunately, the Unit and Integration Tests has failed. Please fix issues."
+                        attachLog: true
                 }
                 //If it Succeeds it will send a Succeeded comfirmation email to the address provided
                 success 
@@ -35,6 +36,7 @@ pipeline{
                     mail to: "rom.frd19@gmail.com",
                         subject: "The Unit and Integration Tests has succeeded!",
                         body: "Fortunately, the Unit and Integration Tests has Succeeded!"
+                        attachLog: true
                 }
 
 
@@ -65,6 +67,7 @@ pipeline{
                         mail to: "rom.frd19@gmail.com",
                         subject: "The Security Scan has failed...",
                         body: "Unfortunately, the Security Scan has failed. Please fix issues."
+                        attachLog: true
                 }
                 //If it Succeeds it will send a Succeeded comfirmation email to the address provided
                 success 
@@ -72,6 +75,7 @@ pipeline{
                         mail to: "rom.frd19@gmail.com",
                         subject: "The Security Scan has succeeded!",
                         body: "Fortunately, the Security Scan has Succeeded!"
+                        attachLog: true
                 }
             
             }
@@ -95,17 +99,7 @@ pipeline{
             }
         }    
 
-        post 
-    {
-        always             
-        {
-
-            mail to: 'rom.frd19@gmail.com',
-                    subject: "Status: ${currentBuild.result}",
-                    body: "Pipeline has been a ${currentBuild.result}."
-                
-        }   
-    }
+    
 }
 
 

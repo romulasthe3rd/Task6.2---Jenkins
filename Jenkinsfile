@@ -87,7 +87,7 @@ pipeline{
             steps
             {
                 //Running Deploy to staging using EC2 instance
-                echo 'deploy the application to a staging server using AWS EC2 Instance...'
+                echo 'running deploy the application to a staging server using AWS EC2 Instance...'
 
             }
         }

@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                
+                echo "Hello"
             }
         }
         stage('Code Analysis') {

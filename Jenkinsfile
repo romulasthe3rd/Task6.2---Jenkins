@@ -3,7 +3,11 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "building"
+                // Checkout the source code from Git repository
+                git url: 'https://github.com/romulasthe3rd/Task6.2---Jenkins.git'
+
+                // Build the code using Maven
+                sh 'mvn clean package'
             }
            post
                 {

@@ -103,7 +103,7 @@ pipeline{
         always             
         {
 
-            mail to: 'chayashiv629@gmail.com',
+            mail to: 'rom.frd19@gmail.com',
                     subject: "Status: ${currentBuild.result}",
                     body: "Pipeline has been a ${currentBuild.result}."
 

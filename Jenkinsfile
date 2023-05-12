@@ -3,9 +3,8 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "Cleaning package..."
                 // Build the code using Maven
-              
+                sh 'mvn clean package'
             }
            post
                 {
@@ -18,19 +17,31 @@ pipeline{
                 }
         }
 
-        stage("Test"){
+        stage("Unit and Integration Test"){
             steps{
                 echo "Testing..."
             }
         }
 
-        stage("Deploy"){
+        stage("Code analysis"){
             steps{
                 echo "Deploying..."
             }
         }
 
-        stage("Complete"){
+        stage("Security Scan"){
+            steps{
+                echo "Completing..."
+            }
+        }
+
+        stage("Integration Tests on Staging"){
+            steps{
+                echo "Completing..."
+            }
+        }
+
+        stage("Deploy to Production"){
             steps{
                 echo "Completing..."
             }
@@ -38,3 +49,6 @@ pipeline{
         
     }
 }
+
+
+

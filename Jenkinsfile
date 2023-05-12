@@ -28,7 +28,7 @@ pipeline{
                     mail to: "rom.frd19@gmail.com",
                         subject: "The Unit and Integration Tests has failed...",
                         body: "Unfortunately, the Unit and Integration Tests has failed. Please fix issues."
-                       
+                        attachLog: true
                 }
                 //If it Succeeds it will send a Succeeded comfirmation email to the address provided
                 success 
@@ -97,7 +97,20 @@ pipeline{
             steps{
                 echo"Deploy to Production server using AWS EC2 instance running..."
             }
-        }    
+        }
+        post 
+    {
+        always             
+        {
+
+            mail to: 'chayashiv629@gmail.com',
+                    subject: "Status: ${currentBuild.result}",
+                    body: "Pipeline has been a ${currentBuild.result}."
+
+            
+                
+        }
+    }    
 
         }
 }

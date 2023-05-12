@@ -8,7 +8,7 @@ pipeline{
             steps 
             {
                 //Building the code using maven automation tool
-                echo  "Building program using Maven automation tool"
+                echo  "Building program using Maven automation tool..."
                   
             }
         }

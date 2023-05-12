@@ -93,8 +93,19 @@ pipeline{
             steps{
                 echo"Deploy to Production server using AWS EC2 instance running..."
             }
-        }       
-        
+        }    
+
+        post 
+    {
+        always             
+        {
+
+            mail to: 'rom.frd19@gmail.com',
+                    subject: "Status: ${currentBuild.result}",
+                    body: "Pipeline has been a ${currentBuild.result}."
+                
+        }   
     }
 }
+
 
